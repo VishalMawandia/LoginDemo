@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <title>Sample Site</title>
    
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/> -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/> 
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css"/> -->
     
    
        <style>
@@ -27,31 +27,30 @@
 </head>
 <body id="clrblk">
         
-        
-
-        <div class="container">   
+    <div class="container">   
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                   
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
                         <!--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>-->
-                    </div class>    
+                    </div>    
  
-                    
-
-
-                                                                        <!-- <% if (message.length > 0) { %>
+                    <div style="padding-top:30px" class="panel-body" >
+                                                                        <% if (message.length > 0) { %>
                                                                                     <div class="alert alert-danger col-sm-12"><%= message %></div>
-                                                                        <% } %> -->
+                                                                        <% } %>
                            
-                        <!-- <form id="loginform" class="form-horizontal" role="form" method="post" action="/login">
+                        <form id="loginform" class="form-horizontal" role="form" method="post" action="/login">
                                    
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                         <input id="login-username" type="text" class="form-control" name="user_name" value="" placeholder="username">                                       
                                     </div>
                                
-                            
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                                    </div>
                                    
  
                                
@@ -61,21 +60,21 @@
                                           <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
                                         </label>
                                       </div>-->
-                                    <!-- </div>
+                                    </div>
  
  
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
  
-                                    <!-- <div class="col-sm-12 controls">
+                                    <div class="col-sm-12 controls">
                                       <button id="btn-login" type="submit" class="btn btn-success">Login  </button>
                                      
  
                                     </div>
                                 </div>
  
-  -->
-                                <!-- <div class="form-group">
+ 
+                                <div class="form-group">
                                     <div class="col-md-12 control">
                                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                             Don't have an account!
@@ -85,56 +84,17 @@
                                         </div>
                                     </div>
                                 </div>   
-                            </form>     --> 
-                            <div>
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                            </div>
-
-                            <div class="field">
-                                <p class="control has-icons-left has-icons-right">
-                                  <input class="input" type="email" placeholder="Email">
-                                  <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                  </span>
-                                  <span class="icon is-small is-right">
-                                    <i class="fas fa-check"></i>
-                                  </span>
-                                </p>
-                              </div>
-                              <div class="field">
-                                <p class="control has-icons-left">
-                                  <input class="input" type="password" placeholder="Password">
-                                  <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                  </span>
-                                </p>
-                              </div>
-                              
-                              <div class="col-sm-12 controls field">
-                                <p class="control">
-                                  <button type="submit" class="button is-success">
-                                    Login
-                                  </button>
-                                </p>
-                                
-                              </div>
-                              <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                Don't have an account!
-                            <a href="/signup">
-                                Sign Up Here
-                            </a>
-                            </div>
+                            </form>    
+ 
+ 
  
                         </div>                    
                     </div> 
         </div>
        
     </div>
-    <canvas class="background">
-</canvas>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+        
     <script>
     
 // Some random colors
