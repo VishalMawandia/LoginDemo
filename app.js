@@ -1,7 +1,6 @@
 /**
 * Module dependencies.
 */
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 var express = require('express')
   , routes = require('./routes')
@@ -39,12 +38,6 @@ app.use(session({
             }))
  
 // development only
-/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-window.onload = function() {
-  Particles.init({
-    selector: '.background'
-  });
-};
  
 app.get('/', routes.index);//call for main index page
 app.get('/signup', user.signup);//call for signup page

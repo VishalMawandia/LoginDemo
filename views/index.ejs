@@ -3,7 +3,9 @@
     <meta charset="UTF-8">
     <title>Sample Site</title>
    
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/> -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css"/>
+    
    
        <style>
        .background {
@@ -12,6 +14,13 @@
   top: 0;
   left: 0;
   z-index: 0;
+}
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+}
+
 }
        </style>
    
@@ -26,24 +35,23 @@
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
                         <!--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>-->
-                    </div>    
+                    </div class>    
  
-                    <div style="padding-top:30px" class="panel-body" >
-                                                                        <% if (message.length > 0) { %>
+                    
+
+
+                                                                        <!-- <% if (message.length > 0) { %>
                                                                                     <div class="alert alert-danger col-sm-12"><%= message %></div>
-                                                                        <% } %>
+                                                                        <% } %> -->
                            
-                        <form id="loginform" class="form-horizontal" role="form" method="post" action="/login">
+                        <!-- <form id="loginform" class="form-horizontal" role="form" method="post" action="/login">
                                    
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                         <input id="login-username" type="text" class="form-control" name="user_name" value="" placeholder="username">                                       
                                     </div>
                                
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                                    </div>
+                            
                                    
  
                                
@@ -53,21 +61,21 @@
                                           <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
                                         </label>
                                       </div>-->
-                                    </div>
+                                    <!-- </div>
  
  
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
  
-                                    <div class="col-sm-12 controls">
+                                    <!-- <div class="col-sm-12 controls">
                                       <button id="btn-login" type="submit" class="btn btn-success">Login  </button>
                                      
  
                                     </div>
                                 </div>
  
- 
-                                <div class="form-group">
+  -->
+                                <!-- <div class="form-group">
                                     <div class="col-md-12 control">
                                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                             Don't have an account!
@@ -77,9 +85,47 @@
                                         </div>
                                     </div>
                                 </div>   
-                            </form>    
- 
- 
+                            </form>     --> 
+                            <div>
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                            </div>
+
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                  <input class="input" type="email" placeholder="Email">
+                                  <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                  </span>
+                                  <span class="icon is-small is-right">
+                                    <i class="fas fa-check"></i>
+                                  </span>
+                                </p>
+                              </div>
+                              <div class="field">
+                                <p class="control has-icons-left">
+                                  <input class="input" type="password" placeholder="Password">
+                                  <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                  </span>
+                                </p>
+                              </div>
+                              
+                              <div class="col-sm-12 controls field">
+                                <p class="control">
+                                  <button type="submit" class="button is-success">
+                                    Login
+                                  </button>
+                                </p>
+                                
+                              </div>
+                              <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                Don't have an account!
+                            <a href="/signup">
+                                Sign Up Here
+                            </a>
+                            </div>
  
                         </div>                    
                     </div> 
@@ -91,11 +137,47 @@
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
     
-    window.load = function() {
-  Particles.init({
-    selector: '.background'
-  });
-};
+// Some random colors
+const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+
+const numBalls = 50;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+  let ball = document.createElement("div");
+  ball.classList.add("ball");
+  ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+  ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+  ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+  ball.style.transform = `scale(${Math.random()})`;
+  ball.style.width = `${Math.random()}em`;
+  ball.style.height = ball.style.width;
+  
+  balls.push(ball);
+  document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+  let to = {
+    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+    y: Math.random() * 12
+  };
+
+  let anim = el.animate(
+    [
+      { transform: "translate(0, 0)" },
+      { transform: `translate(${to.x}rem, ${to.y}rem)` }
+    ],
+    {
+      duration: (Math.random() + 1) * 2000, // random duration
+      direction: "alternate",
+      fill: "both",
+      iterations: Infinity,
+      easing: "ease-in-out"
+    }
+  );
+});
 </script>
 </body>
 </html>
